@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Count from "@/components/Count";
 import Person from "@/components/Person";
+import Submit from "@/components/Submit";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
@@ -12,17 +13,18 @@ export default function Home() {
           2023.08.25<sup>SAT</sup>
         </div>
         <Count />
-        <div className="text-xl lg:text-4xl mt-12 font-semibold">
+        <div className="text-xl lg:text-4xl mt-12 mb-8 font-semibold">
           COMING SOON
         </div>
+        <Submit />
       </section>
       <Person />
-      <section className="pt-48 flex flex-col w-full items-center justify-center text-center font-bold text-2xl lg:text-3xl">
+      <section className="py-48 flex flex-col w-full items-center justify-center text-center font-bold text-2xl lg:text-3xl">
         두 사람의 귀한 생일파티에,
         <br />
         누추한 여러분을 초대합니다.
       </section>
-      <section className="py-96 flex flex-col w-full items-center justify-center">
+      <section className="py-48 flex flex-col w-full items-center justify-center">
         <div className="w-full max-w-2xl px-8 flex flex-col gap-2">
           <div className="chat chat-end">
             <div className="chat-bubble bg-gray-300 text-black">
@@ -30,7 +32,7 @@ export default function Home() {
             </div>
           </div>
           <div className="chat chat-start mb-12">
-            <div className="chat-bubble bg-gray-600 text-white">
+            <div className="chat-bubble bg-black text-white">
               서울시 영등포구 도신로36 4층 디투입니다.
             </div>
           </div>
@@ -40,7 +42,7 @@ export default function Home() {
             </div>
           </div>
           <div className="chat chat-start">
-            <div className="chat-bubble bg-gray-600 text-white">
+            <div className="chat-bubble bg-black text-white">
               1. 15,000원(대관료)
               <br />
               834-910139-65907 하나 나마로
@@ -52,6 +54,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+      <section className="pb-48 pt-12 w-full flex justify-center">
+        <Submit />
       </section>
       <footer className="w-full text-center py-6 absolute bottom-0 text-xs lg:text-lg">
         Made by
