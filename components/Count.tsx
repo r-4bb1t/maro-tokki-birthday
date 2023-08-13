@@ -19,38 +19,51 @@ function useInterval(callback: Function, delay: number) {
 
 export default function Count() {
   const [time, setTime] = useState([
-    Math.floor(
-      (new Date("2023-08-26 20:00").getTime() - new Date().getTime()) /
-        1000 /
-        60 /
-        60 /
-        24
+    Math.max(
+      0,
+      Math.floor(
+        (new Date("2023-08-26 20:00").getTime() - new Date().getTime()) /
+          1000 /
+          60 /
+          60 /
+          24
+      )
     ),
-    Math.floor(
-      ((new Date("2023-08-26 20:00").getTime() - new Date().getTime()) /
-        1000 /
-        60 /
-        60) %
-        24
+    Math.max(
+      0,
+      Math.floor(
+        ((new Date("2023-08-26 20:00").getTime() - new Date().getTime()) /
+          1000 /
+          60 /
+          60) %
+          24
+      )
     ),
-    Math.floor(
-      ((new Date("2023-08-26 20:00").getTime() - new Date().getTime()) /
-        1000 /
-        60) %
-        60
+    Math.max(
+      0,
+      Math.floor(
+        ((new Date("2023-08-26 20:00").getTime() - new Date().getTime()) /
+          1000 /
+          60) %
+          60
+      )
     ),
-    Math.floor(
-      ((new Date("2023-08-26 20:00").getTime() - new Date().getTime()) / 1000) %
-        60
+    Math.max(
+      0,
+      Math.floor(
+        ((new Date("2023-08-26 20:00").getTime() - new Date().getTime()) /
+          1000) %
+          60
+      )
     ),
   ]);
   const setGap = useCallback(() => {
     const gap = new Date("2023-08-26 20:00").getTime() - new Date().getTime();
     setTime([
-      Math.floor(gap / 1000 / 60 / 60 / 24),
-      Math.floor((gap / 1000 / 60 / 60) % 24),
-      Math.floor((gap / 1000 / 60) % 60),
-      Math.floor((gap / 1000) % 60),
+      Math.max(0, Math.floor(gap / 1000 / 60 / 60 / 24)),
+      Math.max(0, Math.floor((gap / 1000 / 60 / 60) % 24)),
+      Math.max(0, Math.floor((gap / 1000 / 60) % 60)),
+      Math.max(0, Math.floor((gap / 1000) % 60)),
     ]);
   }, []);
   useInterval(() => setGap(), 1000);

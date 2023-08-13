@@ -10,7 +10,7 @@ export default function Home() {
     <main className="w-full relative">
       <section className="relative h-screen flex flex-col items-center justify-center">
         <div className="text-4xl lg:text-8xl mb-3 font-semibold">
-          2023.08.25<sup>SAT</sup>
+          2023.08.26<sup>SAT</sup>
         </div>
         <Count />
         <div className="text-xl lg:text-4xl mt-12 mb-8 font-semibold">
