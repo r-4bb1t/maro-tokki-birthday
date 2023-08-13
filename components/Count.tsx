@@ -1,4 +1,3 @@
-// @ts-ignore
 import { useCallback, useEffect, useRef, useState } from "react";
 
 function useInterval(callback: Function, delay: number) {
@@ -59,24 +58,28 @@ export default function Count() {
     <div className="flex gap-3 lg:gap-5">
       <div>
         <span className="countdown font-mono text-xl lg:text-4xl">
+          {/* @ts-ignore */}
           <span style={{ "--value": time[0] }}></span>
         </span>
         days
       </div>
       <div>
         <span className="countdown font-mono text-xl lg:text-4xl">
+          {/* @ts-ignore */}
           <span style={{ "--value": time[1] }}></span>
         </span>
         hours
       </div>
       <div>
         <span className="countdown font-mono text-xl lg:text-4xl">
+          {/* @ts-ignore */}
           <span style={{ "--value": time[2] }}></span>
         </span>
         min
       </div>
       <div>
         <span className="countdown font-mono text-xl lg:text-4xl">
+          {/* @ts-ignore */}
           <span style={{ "--value": time[3] }}></span>
         </span>
         sec
