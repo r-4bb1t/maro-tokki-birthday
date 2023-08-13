@@ -17,12 +17,12 @@ export default function Home() {
         </div>
       </section>
       <Person />
-      <section className="py-48 flex flex-col w-full items-center justify-center text-center font-bold text-2xl lg:text-3xl">
+      <section className="pt-48 flex flex-col w-full items-center justify-center text-center font-bold text-2xl lg:text-3xl">
         두 사람의 귀한 생일파티에,
         <br />
         누추한 여러분을 초대합니다.
       </section>
-      <section className="py-48 flex flex-col w-full items-center justify-center">
+      <section className="py-96 flex flex-col w-full items-center justify-center">
         <div className="w-full max-w-2xl px-8 flex flex-col gap-2">
           <div className="chat chat-end">
             <div className="chat-bubble bg-gray-300 text-black">
@@ -53,11 +53,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <footer className="w-full text-center py-6 absolute bottom-0 text-xs">
+      <footer className="w-full text-center py-6 absolute bottom-0 text-xs lg:text-lg">
         Made by
         <a
           href="https://r4bb1t.dev/"
-          className="inline-block ml-1 bg-black text-white px-1 rounded"
+          target="_blank"
+          className="inline-block ml-1 lg:ml-2 bg-black text-white px-1 lg:px-2 rounded"
         >
           @r-4bb1t
         </a>
