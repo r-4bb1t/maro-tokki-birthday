@@ -8,7 +8,7 @@ export default function Person() {
             src="/maro.png"
           />
         </div>
-        <div className="w-full max-w-xl text-center">
+        <div className="w-full max-w-xl text-center lg:text-left">
           <div className="text-2xl font-bold">Maro Na</div>
           <div className="text-lg font-medium">AI Engineer</div>
           <div>1997.08.25</div>
