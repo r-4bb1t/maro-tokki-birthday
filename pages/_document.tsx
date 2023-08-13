@@ -10,6 +10,11 @@ export default function Document() {
           property="og:image"
           content="https://maro-tokki-birthday.vercel.app/meta.png"
         />
+        <meta
+          property="og:url"
+          content="https://maro-tokki-birthday.vercel.app"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <body>
         <Main />
