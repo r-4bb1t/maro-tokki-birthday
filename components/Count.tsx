@@ -22,7 +22,8 @@ export default function Count() {
     Math.max(
       0,
       Math.floor(
-        (new Date("2023-08-26 20:00").getTime() - new Date().getTime()) /
+        (new Date("2023-08-26 20:00 GMT+0900").getTime() -
+          new Date().getTime()) /
           1000 /
           60 /
           60 /
@@ -32,7 +33,8 @@ export default function Count() {
     Math.max(
       0,
       Math.floor(
-        ((new Date("2023-08-26 20:00").getTime() - new Date().getTime()) /
+        ((new Date("2023-08-26 20:00 GMT+0900").getTime() -
+          new Date().getTime()) /
           1000 /
           60 /
           60) %
@@ -42,7 +44,8 @@ export default function Count() {
     Math.max(
       0,
       Math.floor(
-        ((new Date("2023-08-26 20:00").getTime() - new Date().getTime()) /
+        ((new Date("2023-08-26 20:00 GMT+0900").getTime() -
+          new Date().getTime()) /
           1000 /
           60) %
           60
@@ -51,14 +54,16 @@ export default function Count() {
     Math.max(
       0,
       Math.floor(
-        ((new Date("2023-08-26 20:00").getTime() - new Date().getTime()) /
+        ((new Date("2023-08-26 20:00 GMT+0900").getTime() -
+          new Date().getTime()) /
           1000) %
           60
       )
     ),
   ]);
   const setGap = useCallback(() => {
-    const gap = new Date("2023-08-26 20:00").getTime() - new Date().getTime();
+    const gap =
+      new Date("2023-08-26 20:00 GMT+0900").getTime() - new Date().getTime();
     setTime([
       Math.max(0, Math.floor(gap / 1000 / 60 / 60 / 24)),
       Math.max(0, Math.floor((gap / 1000 / 60 / 60) % 24)),
