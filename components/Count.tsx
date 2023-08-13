@@ -1,3 +1,4 @@
+// @ts-ignore
 import { useCallback, useEffect, useRef, useState } from "react";
 
 function useInterval(callback: Function, delay: number) {
