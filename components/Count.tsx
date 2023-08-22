@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
+const THE_TIME: number = Date.parse("2023-08-26T20:00+09:00");
+
 function useInterval(callback: Function, delay: number) {
   const savedCallback = useRef<Function>();
   useEffect(() => {
@@ -11,7 +13,7 @@ function useInterval(callback: Function, delay: number) {
       if (savedCallback.current) savedCallback.current();
     }
     if (delay !== null) {
-      let id = setInterval(tick, delay);
+      const id = setInterval(tick, delay);
       return () => clearInterval(id);
     }
   }, [delay]);
@@ -22,56 +24,42 @@ export default function Count() {
     Math.max(
       0,
       Math.floor(
-        (new Date("2023-08-26 20:00 GMT+0900").getTime() -
-          new Date().getTime()) /
-          1000 /
-          60 /
-          60 /
-          24
+        (THE_TIME - Date.now()) /
+          1000 / 60 / 60 / 24
       )
     ),
     Math.max(
       0,
       Math.floor(
-        ((new Date("2023-08-26 20:00 GMT+0900").getTime() -
-          new Date().getTime()) /
-          1000 /
-          60 /
-          60) %
-          24
+        (THE_TIME - Date.now()) /
+          1000 / 60 / 60 % 24
       )
     ),
     Math.max(
       0,
       Math.floor(
-        ((new Date("2023-08-26 20:00 GMT+0900").getTime() -
-          new Date().getTime()) /
-          1000 /
-          60) %
-          60
+        (THE_TIME - Date.now()) /
+          1000 / 60 % 60
       )
     ),
     Math.max(
       0,
       Math.floor(
-        ((new Date("2023-08-26 20:00 GMT+0900").getTime() -
-          new Date().getTime()) /
-          1000) %
-          60
+        (THE_TIME - Date.now()) /
+          1000 % 60
       )
     ),
   ]);
   const setGap = useCallback(() => {
-    const gap =
-      new Date("2023-08-26 20:00 GMT+0900").getTime() - new Date().getTime();
+    const gap = THE_TIME - Date.now();
     setTime([
       Math.max(0, Math.floor(gap / 1000 / 60 / 60 / 24)),
-      Math.max(0, Math.floor((gap / 1000 / 60 / 60) % 24)),
-      Math.max(0, Math.floor((gap / 1000 / 60) % 60)),
-      Math.max(0, Math.floor((gap / 1000) % 60)),
+      Math.max(0, Math.floor(gap / 1000 / 60 / 60 % 24)),
+      Math.max(0, Math.floor(gap / 1000 / 60 % 60)),
+      Math.max(0, Math.floor(gap / 1000 % 60)),
     ]);
   }, []);
-  useInterval(() => setGap(), 1000);
+  useInterval(setGap, 1000);
   return (
     <div className="flex gap-3 lg:gap-5">
       <div>
