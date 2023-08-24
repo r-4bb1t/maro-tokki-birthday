@@ -1,9 +1,17 @@
 import { useState } from "react";
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import Count from "@/components/Count";
 import Person from "@/components/Person";
 import Submit from "@/components/Submit";
 
-export default function Home() {
+
+export const getServerSideProps: GetServerSideProps<{
+  now: number
+}> = async () => {
+  return { props: { now: Date.now() } }
+}
+
+export default function Home({now}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const [index, setIndex] = useState(0);
 
   return (
@@ -12,7 +20,7 @@ export default function Home() {
         <div className="text-4xl lg:text-8xl mb-3 font-semibold">
           2023.08.26<sup>SAT</sup>
         </div>
-        <Count />
+        <Count now={now} />
         <div className="text-xl lg:text-4xl mt-12 mb-8 font-semibold">
           COMING SOON
         </div>

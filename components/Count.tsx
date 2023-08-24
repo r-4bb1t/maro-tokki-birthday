@@ -19,33 +19,33 @@ function useInterval(callback: Function, delay: number) {
   }, [delay]);
 }
 
-export default function Count() {
+export default function Count({now}: {now: number}) {
   const [time, setTime] = useState([
     Math.max(
       0,
       Math.floor(
-        (THE_TIME - Date.now()) /
+        (THE_TIME - now) /
           1000 / 60 / 60 / 24
       )
     ),
     Math.max(
       0,
       Math.floor(
-        (THE_TIME - Date.now()) /
+        (THE_TIME - now) /
           1000 / 60 / 60 % 24
       )
     ),
     Math.max(
       0,
       Math.floor(
-        (THE_TIME - Date.now()) /
+        (THE_TIME - now) /
           1000 / 60 % 60
       )
     ),
     Math.max(
       0,
       Math.floor(
-        (THE_TIME - Date.now()) /
+        (THE_TIME - now) /
           1000 % 60
       )
     ),
