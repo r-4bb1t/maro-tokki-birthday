@@ -52,6 +52,13 @@ export default function Count() {
   ]);
   const setGap = useCallback(() => {
     const gap = THE_TIME - Date.now();
+    console.log([THE_TIME, Date.now(), new Date(THE_TIME), new Date(Date.now()), gap]);
+    console.log([
+      Math.max(0, Math.floor(gap / 1000 / 60 / 60 / 24)),
+      Math.max(0, Math.floor(gap / 1000 / 60 / 60 % 24)),
+      Math.max(0, Math.floor(gap / 1000 / 60 % 60)),
+      Math.max(0, Math.floor(gap / 1000 % 60)),
+    ]);
     setTime([
       Math.max(0, Math.floor(gap / 1000 / 60 / 60 / 24)),
       Math.max(0, Math.floor(gap / 1000 / 60 / 60 % 24)),
